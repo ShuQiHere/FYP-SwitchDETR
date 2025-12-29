@@ -13,13 +13,45 @@ Switch-DETR addresses the "query-FFN specialization collapse" in traditional DET
 *   **Convolutional Fuser**: Efficiently extracts local video features.
 *   **Loop Decoder**: Iteratively refines results with a specialized MoE mechanism.
 
-## File Structure
+## Data Preparation
 
-*   `switch-net.ipynb`: The main notebook containing the complete source code for the model, including:
-    *   **Data Loading & Preprocessing**
-    *   **Model Architecture** (Unimodal Encoder, Distill Align, Convolutional Fuser, Switch-DETR Decoder with MoE)
-    *   **Loss Functions** (Span Loss, Saliency Loss, Load Balancing Loss)
-    *   **Training Loop & Validation**
+To replicate the results, you need to download the pre-extracted feature files for the datasets and organize them correctly.
+
+### 1. QVHighlights
+Download the official feature files for the QVHighlights dataset from `moment_detr_features.tar.gz` (8GB).
+
+```bash
+tar -xf path/to/moment_detr_features.tar.gz
+```
+
+If the official link is inaccessible, you can download the features from the backup link:
+*   **QVHighlights (9.34GB)**: [Download](https://drive.google.com/file/d/1LXsZZBsv6Xbg_MmNQOezw0QYKccjcOkP/view)
+
+### 2. Other Datasets
+We provide extracted features for other supported datasets:
+
+*   **Charades-STA (33.18GB)** (Including SlowFast+CLIP and VGG features): [Download](https://drive.google.com/file/d/1B2721QC799qbbGLGSa7DkXJjdRefvZf-/view)
+*   **TACoS (290.7MB)**: [Download](https://drive.google.com/file/d/10Ji9MrlDK_4FdD3HotrVc407xVr4arsL/view)
+*   **TVSum (69.1MB)**: *(Link provided upon request)*
+
+### 3. Project Directory Structure
+After downloading and extracting the features, please organize your project directory as follows. Alternatively, you can modify the paths in `switch-net.ipynb` to match your local setup.
+
+```text
+FYP-SwitchDETR/
+├── switch-net.ipynb
+├── README.md
+├── qvhighlights/
+│   ├── train.jsonl
+│   ├── val.jsonl
+│   ├── test.jsonl
+│   └── features/
+│       ├── video_clip_features/
+│       └── query_clip_features/
+├── charades/
+│   └── ...
+└── ...
+```
 
 ## Requirements
 
