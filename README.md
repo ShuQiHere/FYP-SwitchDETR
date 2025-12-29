@@ -13,6 +13,17 @@ Switch-DETR addresses the "query-FFN specialization collapse" in traditional DET
 *   **Convolutional Fuser**: Efficiently extracts local video features.
 *   **Loop Decoder**: Iteratively refines results with a specialized MoE mechanism.
 
+## File Structure
+*   `switch-net.ipynb`: The main notebook containing the complete source code for the model, including:
+    *   **Data Loading & Preprocessing**
+    *   **Model Architecture** (Unimodal Encoder, Distill Align, Convolutional Fuser, Switch-DETR Decoder with MoE)
+    *   **Loss Functions** (Span Loss, Saliency Loss, Load Balancing Loss)
+    *   **Training Loop & Validation**
+*   `demo_en.ipynb`: An interactive **Gradio** demo notebook that allows you to:
+    *   Load a trained model.
+    *   Input a custom video and text query.
+    *   Visualize the retrieval results in real-time.
+
 ## Data Preparation
 
 To replicate the results, you need to download the pre-extracted feature files for the datasets and organize them correctly.
